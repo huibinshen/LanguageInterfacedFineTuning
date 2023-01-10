@@ -153,10 +153,14 @@ def run_setting_gptj(data_dir, n_sims = 3,
                     if sim_idx == 0: config['epochs'] = [epochs[gptj_fine_tuner.best_idx]]
                     # save fine-tuned info and results
                     try:
-                        with open('%s/data_%d/%s%s_all.json' % (data_dir, sim_idx+1, data_prefix, pc),'r') as fp:
-                            tr_ts_vl_json = json.load(fp)
+                        res_path = '%s/data_%d/%s%s_all.json' % (data_dir, sim_idx+1, data_prefix, pc)
+                        if os.path.exists(res_path):
+                            with open(res_path,'r') as fp:
+                                tr_ts_vl_json = json.load(fp)
+                        else:
+                            tr_ts_vl_json = {}
                         tr_ts_vl_json['gptj_test_y'] = y_test_outputs
-                        with open('%s/data_%d/%s%s_all.json' % (data_dir, sim_idx+1, data_prefix, pc),'w') as fp:
+                        with open(res_path,'w') as fp:
                             json.dump(tr_ts_vl_json,fp)
                     except:
                         p = -1

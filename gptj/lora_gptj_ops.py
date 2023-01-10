@@ -29,7 +29,7 @@ class FrozenBNBLinear(nn.Module):
  
     def forward(self, input):
         # TD added
-        output = DequantizeAndLinear.apply(input, self.weight, self.absmax, self.code, self.bias)
+        output = DequantizeAndLinear.apply(input, self.weight, self.absmax, self.code, self.bias).clone()
         if self.adapter:
             output += self.adapter(input)
         return output

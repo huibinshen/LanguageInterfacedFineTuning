@@ -1,0 +1,11 @@
+tqdm
+transformers==4.14.1
+openai
+scikit-learn
+matplotlib
+openml
+torch
+bitsandbytes-cuda111
+jupyter
+accelerate
+datasets==1.16.1

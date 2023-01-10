@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from functools import partial
 import numpy as np
-sys.path.insert(1, '/home/user0/Desktop/LIFT-arXiv')
+sys.path.insert(1, '/home/ec2-user/LanguageInterfacedFineTuning/')
 from gptj import lora_gptj
 from gptj.lora_gptj import AverageMeter
 from resultsCollector import regressionLoss
